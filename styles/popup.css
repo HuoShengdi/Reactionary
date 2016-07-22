@@ -1,0 +1,21 @@
+.hidden {
+  display: none;
+}
+
+body {
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 100%;
+}
+
+#copy-tip {
+  font-size: 10px;
+}
+
+.search-note {
+  font-size: 12px;
+}
+
+ul, li {
+  padding: 0;
+  list-style: none;
+}

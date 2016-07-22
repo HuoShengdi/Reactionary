@@ -1,0 +1,13 @@
+ul, li{
+  padding: 0;
+  list-style: none;
+}
+
+.main {
+  width: 800px;
+  margin: auto;
+}
+
+.heading {
+  text-align: center;
+}

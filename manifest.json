@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Reactionary",
-  "description": "Save image urls for later use and manage them in a library",
+  "description": "Save image urls for later use and manage them in a library. Please don't hotlink images!",
   "version": "0.0.1",
 
   "browser_action": {

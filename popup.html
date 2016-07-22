@@ -1,42 +1,25 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
     <title>Search for Reaction</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+    <link rel="stylesheet" href="/styles/popup.css" charset="utf-8">
+    <script src="lib/db_utils.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
+    <div id="title">Reactionary Search</div>
     <div id="search">
-      <input type="text" name="search-field" value="" placeholder="Search Library">
+      <input id='search-field' type="text" name="search-field" placeholder="Search Library"></input>
     </div>
     <ul id="results-list">
+      <li class="search-note">Type to search library by title</li>
     </ul>
+    <div id="copy-tip" class='hidden'>
+      Right-click and "Copy Link Address" to save to clipboard
+    </div>
     <div id="library-link">
       View Library
     </div>
+    <textarea class='hidden' id='copy'></textarea>
   </body>
 </html>
