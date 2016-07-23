@@ -1,6 +1,19 @@
+body{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #ffe88d;
+}
+
 ul, li{
   padding: 0;
   list-style: none;
+}
+
+h1{
+  font-family: "Lucida Sans", sans-serif;
+  font-size: 30px;
+  color: #c60000;
 }
 
 .main {
@@ -10,4 +23,76 @@ ul, li{
 
 .heading {
   text-align: center;
+}
+
+.columns {
+  position: relative;
+}
+
+.columns::after{
+  display:block;
+  content: "";
+  clear: both;
+}
+
+.columns span {
+  font-family: "Lucida Sans", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #c62020;
+}
+
+.columns #title-column{
+  float: left;
+  position: relative;
+  left: 0;
+}
+
+.columns #url-column{
+  float: left;
+  position: relative;
+  left: 189px;
+}
+
+.library-list-item {
+  font-family: "SegoeUI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 16px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+
+li:nth-child(even){
+  background: #dfdfdf;
+}
+
+li:nth-child(odd){
+  background: #f0f0f0;
+}
+
+.library-list-item span{
+  width: 150px;
+  overflow: hidden;
+
+}
+
+.library-list-item * {
+  display:inline-block;
+  padding: 5px;
+  line-height: normal;
+}
+
+.library-list-item a {
+  position: absolute;
+  left: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.library-list-item button{
+  float: right;
+  margin-left: 5px;
+
 }

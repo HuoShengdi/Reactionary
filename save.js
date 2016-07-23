@@ -13,7 +13,7 @@ function setFormListener(url){
 function saveUrl(url, title){
   console.log("save button clicked");
   var imageObj = {title: title, url: url};
-  save("images", imageObj, saveSuccess, saveError);
+  save(imageObj, saveSuccess, saveError);
 }
 
 function saveSuccess(){
@@ -49,8 +49,8 @@ function renderThumbnail(url) {
   var canvas = document.getElementById('thumbnail');
   var context = canvas.getContext('2d');
 
-  canvas.width = 100;
-  canvas.height = 100;
+  canvas.width = 150;
+  canvas.height = 150;
 
   var image = new Image();
   image.addEventListener('load', function() {
@@ -93,8 +93,6 @@ function isEmpty(obj) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var loader = document.getElementById('loading');
-  loader.classList.add("hidden");
   var imageUrl = window.location.hash.substring(1);
   if (imageUrl) {
     renderUrl(imageUrl);
@@ -103,4 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeWindow();
     openDb();
   }
+});
+
+window.addEventListener("load", function(e){
+  var loader = document.getElementById('loading');
+  loader.classList.add("hidden");
 });

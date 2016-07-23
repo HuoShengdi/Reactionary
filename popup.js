@@ -25,7 +25,7 @@ function searchDb () {
   var searchField = document.getElementById('search-field');
   if (searchField.value){
     var regexp = new RegExp(searchField.value);
-    getMatching("images", regexp, appendSearchItems);
+    getMatching(regexp, appendSearchItems);
   }else{
     clearResults();
     var resultsList = document.getElementById("results-list");

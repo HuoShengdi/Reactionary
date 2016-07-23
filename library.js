@@ -1,14 +1,39 @@
 function appendListItems(array){
-  var imgList = document.getElementById("img-list");
+  var imgList = document.getElementById("image-list");
   while (imgList.firstChild){
     imgList.removeChild(imgList.firstChild);
   }
   array.forEach(function (obj){
     var listItem = document.createElement('li');
-    listItem.innerText = obj.title;
     listItem.dataset.url = obj.url;
+    listItem.classList.add("library-list-item");
+
+    var titleSpan = document.createElement('span');
+    titleSpan.innerText = obj.title;
+    listItem.appendChild(titleSpan);
+
+    var urltext = (obj.url.length < 45) ? obj.url : obj.url.substr(0, 42) + '...';
+    var urlTag = document.createElement('a');
+    urlTag.innerText = urltext;
+    urlTag.href = obj.url;
+    listItem.appendChild(urlTag);
+
+    var delBtn = document.createElement('button');
+    delBtn.innerText = "Delete";
+    delBtn.classList.add('url-delete');
+    listItem.appendChild(delBtn);
+
+    var editBtn = document.createElement('button');
+    editBtn.innerText = "Edit";
+    editBtn.classList.add('url-edit');
+    listItem.appendChild(editBtn);
+
     imgList.appendChild(listItem);
   });
+}
+
+function handleDelete (){
+
 }
 
 function openThumb (e){
@@ -17,7 +42,7 @@ function openThumb (e){
 
 function getUrls(){
   return function (){
-    getAll('images', appendListItems);
+    getAllUrls(appendListItems);
   };
 }
 
