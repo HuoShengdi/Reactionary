@@ -5,7 +5,20 @@ function appendListItems(array){
   while (imgList.firstChild){
     imgList.removeChild(imgList.firstChild);
   }
-  array.forEach(function (obj){
+  var byTitle = array.sort(function(a,b){
+    var titleA = a.title.toUpperCase();
+    var titleB = b.title.toUpperCase();
+    if (titleA < titleB){
+      return -1;
+    }
+    if (titleA > titleB){
+      return 1;
+    }
+
+    return 0;
+  });
+  
+  byTitle.forEach(function (obj){
     var listItem = document.createElement('li');
     listItem.dataset.url = obj.url;
     listItem.dataset.title = obj.title;
