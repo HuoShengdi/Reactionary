@@ -75,7 +75,6 @@ li:nth-child(odd){
 .library-list-item span{
   width: 150px;
   overflow: hidden;
-
 }
 
 .library-list-item * {
@@ -94,5 +93,31 @@ li:nth-child(odd){
 .library-list-item button{
   float: right;
   margin-left: 5px;
+}
 
+.library-list-item .url-title, .library-list-item .url-url{
+  font-family: "SegoeUI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 0;
+}
+
+.library-list-item form{
+  display: block;
+}
+
+.url-title {
+
+}
+
+.url-url {
+  position: absolute;
+  left: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 450px;
+}
+
+.submit {
+  float:right;
+  margin-left: 5px;
 }

@@ -3,7 +3,7 @@
 
   "name": "Reactionary",
   "description": "Save image urls for later use and manage them in a library. Please don't hotlink images!",
-  "version": "0.0.1",
+  "version": "0.1.1",
 
   "browser_action": {
     "default_icon": "ReactionaryIcon19.png",
@@ -22,6 +22,8 @@
   "icons": {
     "16": "ReactionaryIcon16.png",
     "19": "ReactionaryIcon19.png",
-    "38": "ReactionaryIcon38.png"
+    "38": "ReactionaryIcon38.png",
+    "48": "ReactionaryIcon48.png",
+    "128": "ReactionaryIcon128.png"
   }
 }

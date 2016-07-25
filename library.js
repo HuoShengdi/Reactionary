@@ -14,6 +14,7 @@ function appendListItems(array){
 
     var titleSpan = document.createElement('span');
     titleSpan.innerText = obj.title;
+    titleSpan.classList.add = "url-title";
     listItem.appendChild(titleSpan);
 
     var urltext = (obj.url.length < 45) ? obj.url : obj.url.substr(0, 42) + '...';
@@ -28,7 +29,7 @@ function appendListItems(array){
     listItem.appendChild(delBtn);
 
     var editBtn = document.createElement('button');
-    editBtn.innerText = "Edit";
+    editBtn.innerText = "Rename";
     editBtn.id = 'url-edit';
     listItem.appendChild(editBtn);
 
@@ -40,19 +41,53 @@ function getClicked(e){
   if (e.target.id === 'url-delete') {
     handleDelete(e);
   }else if (e.target.id === 'url-edit') {
-    handleEdit(e);
+    openEditForm(e);
   }
 }
 
 function handleDelete (e){
   var url = e.currentTarget.dataset.url;
   var title = e.currentTarget.dataset.title;
-  var imageObj = {title: title, url: url};
+  var imageObj =  {title: title, url: url};
   deleteUrl(imageObj, getUrls());
 }
 
-function handleEdit(e){
+function openEditForm(e){
+  var listItem = e.currentTarget;
 
+  var editForm = document.createElement('form');
+  editForm.onsubmit = handleSubmit;
+
+  var titleInput = document.createElement('input');
+  titleInput.type = "text";
+  titleInput.value = listItem.dataset.title;
+  titleInput.classList.add("url-title");
+  editForm.appendChild(titleInput);
+
+  var urlInput = document.createElement('input');
+  urlInput.type = "text";
+  urlInput.value = listItem.dataset.url;
+  urlInput.disabled = true;
+  urlInput.classList.add("url-url");
+  editForm.appendChild(urlInput);
+
+  var submitBtn = document.createElement('input');
+  submitBtn.type = "submit";
+  submitBtn.classList.add("submit");
+  editForm.appendChild(submitBtn);
+
+  listItem.innerHTML = "";
+  listItem.appendChild(editForm);
+}
+
+function handleSubmit(e){
+  e.preventDefault();
+  var form = e.target;
+  var title = form[0].value;
+  var url = form[1].value;
+  var imageObj = {title: title, url: url};
+
+  editUrl(imageObj, getUrls());
 }
 
 function openThumb (e){
